@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - منصة التمويل</title>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+    <div class="card">
+        <h2 id="formTitle">تسجيل الدخول</h2>
+        
+        <div id="registerFields" style="display: none;">
+            <input type="text" id="firstName" placeholder="الاسم الأول">
+            <input type="text" id="lastName" placeholder="الاسم الأخير">
+            <input type="number" id="userPin" placeholder="رمز PIN (4 أرقام)" maxlength="4" oninput="if(this.value.length > 4) this.value = this.value.slice(0, 4);">
+        </div>
+
+        <input type="email" id="email" placeholder="البريد الإلكتروني">
+        <input type="password" id="pass" placeholder="كلمة المرور">
+        
+        <select id="role">
+            <option value="user">صاحب مشروع (Seller)</option>
+            <option value="admin">مدير (Admin)</option>
+        </select>
+
+        <button id="mainBtn" onclick="login()">دخول</button>
+        
+        <p style="margin-top: 10px;">
+            <a href="#" onclick="forgotPassword()" style="color: #8b5e3c; font-size: 0.85rem; text-decoration: none;">نسيت كلمة المرور؟</a>
+        </p>
+
+        <hr>
+        <p id="toggleText" style="font-size: 0.9rem;">ليس لديك حساب؟</p>
+        <button class="register-btn" id="toggleBtn" onclick="toggleForm()">إنشاء حساب جديد</button>
+        
+        <button class="guest-btn" onclick="location.href='guest.html'">الدخول كضيف لتصفح المشاريع</button>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

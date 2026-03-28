@@ -1,0 +1,137 @@
+:root {
+    --primary-brown: #8b5e3c;
+    --bg-light: #fdfaf8;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.navbar {
+    background-color: var(--primary-brown);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-brand { 
+    color: white; 
+    font-size: 1.4rem; 
+    font-weight: bold; 
+    text-decoration: none; 
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 12px; 
+}
+
+.nav-links a { 
+    color: white; 
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.container {
+    display: flex;
+    max-width: 1300px;
+    margin: 30px auto;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.main-content { flex: 3; }
+
+.side-banner {
+    flex: 1;
+    background: var(--primary-brown);
+    color: white;
+    border-radius: 15px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: fit-content;
+}
+
+.form-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.btn-send {
+    width: 100%;
+    background: var(--primary-brown);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+th {
+    background: var(--primary-brown);
+    color: white;
+}
+
+.desc-cell {
+    max-width: 200px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #666;
+}
+
+img {
+    width: 60px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.status-approved { color: #27ae60; font-weight: bold; }
+.status-pending { color: #f39c12; font-weight: bold; }
