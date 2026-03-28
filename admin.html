@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المنصة - دعمي</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="nav-buttons">
+            <a href="guest.html" class="nav-link-btn">المشاريع المعتمدة</a>
+            <a href="javascript:void(0)" onclick="logout()" class="nav-link-btn">خروج</a>
+        </div>
+        <h2 class="header-title">الأدارة </h2>
+    </header>
+
+    <div class="admin-container">
+        
+        <div class="section-box">
+            <h3 style="border-right: 5px solid orange; padding-right:10px;">طلبات الانتظار ⏳</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="10%">الصورة</th>
+                        <th width="15%">الهوية</th>
+                        <th width="15%">الإيميل</th>
+                        <th width="30%">الوصف</th>
+                        <th width="10%">الهدف</th>
+                        <th width="10%">التاريخ</th>
+                        <th width="10%">إجراء</th>
+                    </tr>
+                </thead>
+                <tbody id="pendingProjectsBody"></tbody>
+            </table>
+        </div>
+
+        <div class="section-box">
+            <h3 style="border-right: 5px solid #27ae60; padding-right:10px;">المشاريع المعتمدة ✅</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="10%">الصورة</th>
+                        <th width="15%">الهوية</th>
+                        <th width="15%">الإيميل</th>
+                        <th width="30%">الوصف</th>
+                        <th width="10%">الهدف</th>
+                        <th width="10%">التاريخ</th>
+                        <th width="10%">إجراء</th>
+                    </tr>
+                </thead>
+                <tbody id="approvedProjectsBody"></tbody>
+            </table>
+        </div>
+
+        <div class="section-box">
+            <h3 style="border-right: 5px solid #3498db; padding-right:10px;">طلبات الانضمام للإدارة</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="25%">الاسم</th>
+                        <th width="35%">البريد الإلكتروني</th>
+                        <th width="20%">الحالة</th>
+                        <th width="20%">إجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="adminRequestsBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

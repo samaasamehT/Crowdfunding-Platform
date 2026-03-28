@@ -1,0 +1,110 @@
+:root {
+    --primary-brown: #8b5e3c;
+    --secondary-brown: #b75611;
+    --bg-light: #fdfaf8;
+    --white: #ffffff;
+    --text-dark: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+}
+
+.page-header {
+    background-color: var(--primary-brown);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.page-header h1 { margin: 0; font-size: 2.5rem; }
+.page-header p { margin: 10px 0 0; opacity: 0.9; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+/* نظام الشبكة (Grid) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* تصميم الكارت */
+.card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(226, 104, 11, 0.2);
+}
+
+.card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin: 0 0 15px;
+    color: var(--primary-brown);
+    font-size: 1.4rem;
+}
+
+.info p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color:#8b5e3c;
+}
+
+.goal { color: #27ae60 !important; font-weight: bold; }
+
+/* زرار الدعم */
+.btn-support {
+    margin-top: auto;
+    background-color: var(--primary-brown);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.btn-support:hover {
+    background-color: var(--secondary-brown);
+}
+
+
+@media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+}
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
