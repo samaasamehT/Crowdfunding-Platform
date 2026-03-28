@@ -1,0 +1,98 @@
+    <!DOCTYPE html>
+    <html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>تسجيل الدخول - منصة التمويل</title>
+        <link rel="stylesheet" href="auth.css">
+    
+    </head>
+    <body>
+
+        <div class="card">
+            <h2>تسجيل الدخول</h2>
+            <input type="email" id="email" placeholder="البريد الإلكتروني">
+            <input type="password" id="pass" placeholder="كلمة المرور">
+            
+            <select id="role">
+                <option value="user">صاحب مشروع (Seller)</option>
+                <option value="admin">مدير (Admin)</option>
+            </select>
+
+            <button onclick="login()">دخول</button>
+            <button class="register-btn" onclick="register()">إنشاء حساب جديد</button>
+            
+            <hr>
+            <button class="guest-btn" onclick="location.href='guest.html'">الدخول كضيف لتصفح المشاريع</button>
+        </div>
+
+        <script>
+            const api = "http://localhost:3000/users";
+
+            async function login() {
+                const email = document.getElementById('email').value.trim();
+                const pass = document.getElementById('pass').value.trim();
+                const role = document.getElementById('role').value;
+
+                if (!email || !pass) return alert("من فضلك أدخلي الإيميل والباسورد");
+
+                try {
+                    const res = await fetch(`${api}?email=${email}&password=${pass}&role=${role}`);
+                    const users = await res.json();
+
+                    if (users.length > 0) {
+                        const user = users[0];
+                        if (!user.isActive) return alert("هذا الحساب محظور من قبل الإدارة");
+
+                        // حفظ بيانات المستخدم في الجهاز
+                        localStorage.setItem('user', JSON.stringify(user));
+
+                        // التوجيه التلقائي حسب الرتبة (في نفس الصفحة لتجربة أفضل)
+                        if (user.role === 'admin') {
+                            window.location.href = 'admin.html'; 
+                        } else {
+                            window.location.href = 'user.html';
+                        }
+                    } else {
+                        alert("بيانات الدخول غير صحيحة، تأكدي من البريد، كلمة المرور، والرتبة.");
+                    }
+                } catch (error) {
+                    alert("تأكدي من تشغيل السيرفر (json-server) في الـ Terminal أولاً!");
+                }
+            }
+
+            async function register() {
+                const email = document.getElementById('email').value.trim();
+                const pass = document.getElementById('pass').value.trim();
+                const role = document.getElementById('role').value;
+
+                if(!email || !pass) return alert("أدخلي بريد إلكتروني وكلمة مرور للتسجيل");
+
+                try {
+                    // التأكد أولاً إذا كان الإيميل مسجلاً مسبقاً
+                    const checkRes = await fetch(`${api}?email=${email}`);
+                    const existing = await checkRes.json();
+                    if(existing.length > 0) return alert("هذا البريد مسجل بالفعل!");
+
+                    const newUser = {
+                        id: Date.now().toString(),
+                        email,
+                        password: pass,
+                        role,
+                        isActive: true,
+                        name: "User_" + Math.floor(Math.random()*100)
+                    };
+
+                    await fetch(api, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(newUser)
+                    });
+                    alert("تم التسجيل بنجاح! يمكنك الآن الضغط على 'دخول'");
+                } catch (e) {
+                    alert("حدث خطأ أثناء التسجيل");
+                }
+            }
+        </script>
+    </body>
+    </html>

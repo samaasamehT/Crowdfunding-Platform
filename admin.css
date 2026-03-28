@@ -1,0 +1,121 @@
+/* التنسيق العام */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+h3 {
+    border-right: 5px solid #8b5e3c; /* لون بني للحد الجانبي */
+    padding-right: 15px;
+    margin-top: 20px;
+    color: #444;
+}
+
+.section-box {
+    margin-bottom: 40px;
+}
+
+/* جداول البيانات */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+/* اللون البني لجدول المراجعة */
+th {
+    background-color: #7e3c09; /* نفس روح صفحة الدخول */
+    color: white;
+    font-weight: 600;
+}
+
+/* اللون الأخضر للمشاريع المقبولة */
+.approved-header th {
+    background-color: #27ae60;
+}
+
+/* الصور داخل الجدول */
+img {
+    width: 100px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: transform 0.2s;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+/* الأزرار */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-approve {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.btn-reject {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-toggle {
+    background-color: #3498db;
+    color: white;
+}
+
+/* كروت المستخدمين */
+.user-card {
+    background: white;
+    padding: 20px;
+    margin: 12px 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.status-active {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.status-blocked {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 40px 0;
+}
